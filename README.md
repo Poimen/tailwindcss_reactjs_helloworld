@@ -35,7 +35,7 @@ npm install --save-dev postcss-cli autoprefixer
 
 7. Add npm scripts to build tailwind:
 ```
-"build:css": "tailwind build src/assets/tailwind.css -o src/assets/base.css",
+"build:css": "postcss src/assets/tailwind.css -o src/assets/base.css",
 "start": "npm run build:css && react-scripts start",
 "build": "npm run build:css && react-scripts build",
 ```
