@@ -58,12 +58,7 @@ import './assets/base.css';
 ```
 
 ## Optimisations
-1. Install cssnano
-```
-npm install --save-dev cssnano
-```
-
-2. Install purgecss
+1. Install purgecss
 ```
 npm install --save-dev @fullhuman/postcss-purgecss
 ```
