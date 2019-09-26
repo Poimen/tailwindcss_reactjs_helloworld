@@ -1,5 +1,4 @@
 import React from 'react';
-import './assets/base.css';
 
 function App() {
   return (

@@ -45,3 +45,39 @@ npm install --save-dev postcss-cli autoprefixer
 import './assets/base.css';
 ```
 
+9. Test...and it should all work....
+
+## After production build...
+```
+  File                                          Size               Gzipped
+
+  build/static/css/main.967f32c7.chunk.css      660 KB              82.99 KB
+  build/static/js/2.d0d659d1.chunk.js           124 KB              38.59 KB
+  build/static/js/main.7012c808.chunk.js        1.6 KB              854 B
+  build/static/js/runtime-main.be0b657f.js      1.6 KB              789 B
+```
+
+## Optimisations
+1. Install cssnano
+```
+npm install --save-dev cssnano
+```
+
+2. Install purgecss
+```
+npm install --save-dev @fullhuman/postcss-purgecss
+```
+
+3. Update `postcss.config.js` to include above modules
+
+4. Add prebuild step to build npm script with node env set to production
+
+## After optimisations...
+```
+  File                                          Size               Gzipped
+
+  build/static/css/main.9f368bf0.chunk.css      2.9 KB              1.19 KB
+  build/static/js/2.d0d659d1.chunk.js           124 KB              38.59 KB
+  build/static/js/main.7012c808.chunk.js        1.6 KB              854 B
+  build/static/js/runtime-main.be0b657f.js      1.6 KB              789 B
+```
