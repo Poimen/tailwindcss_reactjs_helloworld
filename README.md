@@ -63,9 +63,9 @@ import './assets/base.css';
 npm install --save-dev @fullhuman/postcss-purgecss
 ```
 
-3. Update `postcss.config.js` to include above modules
+2. Update `postcss.config.js` to include above modules
 
-4. Add prebuild step to build npm script with node env set to production
+3. Add prebuild step to build npm script with node env set to production
 
 ## After optimisations...
 ```
