@@ -81,3 +81,8 @@ npm install --save-dev @fullhuman/postcss-purgecss
   build/static/js/main.7012c808.chunk.js        1.6 KB              854 B
   build/static/js/runtime-main.be0b657f.js      1.6 KB              789 B
 ```
+
+## Thanks to blog posts:
+- https://blog.logrocket.com/create-react-app-and-tailwindcss/
+- https://itnext.io/how-to-use-tailwind-css-with-react-16e9d478b8b1
+- https://dev.to/hagnerd/setting-up-tailwind-with-create-react-app-4jd
