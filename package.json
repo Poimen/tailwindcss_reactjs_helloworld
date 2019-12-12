@@ -10,8 +10,8 @@
   "scripts": {
     "build:css": "postcss src/assets/tailwind.css -o src/assets/base.css",
     "start": "npm run build:css && react-scripts start",
-    "prebuild": "NODE_ENV=production npm run build:css",
     "build": "react-scripts build",
+    "postbuild": "purgecss --css build/static/css/*.css --content build/index.html  build/static/js/*.js --out build/static/css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
