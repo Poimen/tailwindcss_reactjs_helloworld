@@ -10,23 +10,26 @@ This is just a sample application from Create React App (CRA) and attempt at an 
 npx create-react-app .
 ```
 
-2. npm install tailwindcss
+2. npm install tailwindcss and dependencies
+
+CRA does not currently support PostCSS 8, so install the [compat](https://tailwindcss.com/docs/installation#post-css-7-compatibility-build) build for Tailwind.
+
 ```
-npm install --save-dev tailwindcss
+npm install --save-dev tailwindcss@npm:@tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
 ```
 
 3. Generate configuration file
 ```
-npx tailwind init
+npx tailwindcss-cli@latest init
 ```
 
-4. Install postcss-cli and autoprefixer
+4. Install postcss-cli and npm-run-all
 ```
-npm install --save-dev postcss-cli autoprefixer
+npm install --save-dev postcss-cli npm-run-all
 ```
 
 5. Add postcss.config.js settings
-6. Add `src/assets/tailwind.css` with:
+6. Add `src/assets/styles/tailwind.css` with:
 ```
 @tailwind base;
 @tailwind components;
@@ -35,52 +38,34 @@ npm install --save-dev postcss-cli autoprefixer
 
 7. Add npm scripts to build tailwind:
 ```
-"build:css": "postcss src/assets/tailwind.css -o src/assets/base.css",
-"start": "npm run build:css && react-scripts start",
-"build": "npm run build:css && react-scripts build",
+"watch:css": "postcss src/assets/styles/tailwind.css -o src/assets/styles/index.css -w",
+"start:js": "react-scripts start",
+"start": "npm-run-all -p watch:css start:js",
+"prebuild": "NODE_ENV=production postcss src/assets/styles/tailwind.css -o src/assets/styles/index.css",
 ```
 
-8. Import styles into app
+8. Import styles into index
 ```
-import './assets/base.css';
+import './assets/styles/index.css';
 ```
 
 9. Test...and it should all work....
 
 ## After production build...
 ```
-  File                                          Size               Gzipped
+File sizes after gzip:
 
-  build/static/css/main.967f32c7.chunk.css      660 KB              82.99 KB
-  build/static/js/2.d0d659d1.chunk.js           124 KB              38.59 KB
-  build/static/js/main.7012c808.chunk.js        1.6 KB              854 B
-  build/static/js/runtime-main.be0b657f.js      1.6 KB              789 B
+  41.21 KB  build/static/js/2.f0ac8f82.chunk.js
+  1.41 KB   build/static/css/main.2c910690.chunk.css
+  1.41 KB   build/static/js/3.bd295f61.chunk.js
+  1.18 KB   build/static/js/runtime-main.cff3aee4.js
+  502 B     build/static/js/main.34e47f36.chunk.js
 ```
 
 ## Optimisations
-1. Install purgecss
-```
-npm install --save-dev @fullhuman/postcss-purgecss
-```
 
-2. Add `postbuild` step `package.json`:
-```
-"postbuild": "purgecss --css build/static/css/*.css --content build/index.html build/static/js/*.js --out build/static/css"
-```
+By default Tailwind runs purgecss to remove unnecessary styles. Any further optimisation do not add significant value.
 
-3. Add prebuild step to build npm script with node env set to production
+For other CSS assets, `cssnano` has been added. This does not reduce tailwind sizes.
 
-## After optimisations...
-```
-  File                                          Size               Gzipped
-
-  build/static/css/main.9f368bf0.chunk.css      2.9 KB              1.19 KB
-  build/static/js/2.d0d659d1.chunk.js           124 KB              38.59 KB
-  build/static/js/main.7012c808.chunk.js        1.6 KB              854 B
-  build/static/js/runtime-main.be0b657f.js      1.6 KB              789 B
-```
-
-## Thanks to blog posts:
-- https://blog.logrocket.com/create-react-app-and-tailwindcss/
-- https://itnext.io/how-to-use-tailwind-css-with-react-16e9d478b8b1
-- https://dev.to/hagnerd/setting-up-tailwind-with-create-react-app-4jd
+For further reductions to suite your use case - refer the tailwind [docs](https://tailwindcss.com/docs/optimizing-for-production)
