@@ -1,6 +1,6 @@
 # Tailwindcss and ReactJS Hello World
 
-Hello World test project for trialing out [Tailwindcss](https://tailwindcss.com)
+Hello World test project for trying out [Tailwindcss](https://tailwindcss.com)
 
 This is just a sample application from Create React App (CRA) and attempt at an optimised Tailwind css output.
 
@@ -50,6 +50,8 @@ import './assets/styles/index.css';
 ```
 
 9. Test...and it should all work....
+
+The example components also show the tailwind [JIT](https://tailwindcss.com/docs/just-in-time-mode#enabling-jit-mode) syntax.
 
 ## After production build...
 ```
