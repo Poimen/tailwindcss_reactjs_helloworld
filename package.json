@@ -15,7 +15,7 @@
     "watch:css": "postcss src/assets/styles/tailwind.css -o src/assets/styles/index.css -w",
     "start:js": "react-scripts start",
     "start": "npm-run-all -p watch:css start:js",
-    "prebuild": "NODE_ENV=production postcss src/assets/styles/tailwind.css -o src/assets/styles/index.css",
+    "prebuild": "postcss src/assets/styles/tailwind.css -o src/assets/styles/index.css",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
