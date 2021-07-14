@@ -55,11 +55,11 @@ import './assets/styles/index.css';
 ```
 File sizes after gzip:
 
-  41.21 KB  build/static/js/2.f0ac8f82.chunk.js
-  1.41 KB   build/static/css/main.2c910690.chunk.css
-  1.41 KB   build/static/js/3.bd295f61.chunk.js
-  1.18 KB   build/static/js/runtime-main.cff3aee4.js
-  502 B     build/static/js/main.34e47f36.chunk.js
+  41.35 KB  build\static\js\2.4d80b542.chunk.js
+  1.96 KB   build\static\css\main.8528a75d.chunk.css
+  1.41 KB   build\static\js\3.e8261a18.chunk.js
+  1.18 KB   build\static\js\runtime-main.c67641de.js
+  818 B     build\static\js\main.b2149777.chunk.js
 ```
 
 ## Optimisations
