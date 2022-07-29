@@ -24,3 +24,9 @@ npm run start
 ```
 
 This repository uses Tailwind v3 so by default Tailwind JIT is enabled, hence only used styles are output.
+
+# Example output screen
+
+As an example of what to expect
+
+![example-output-cards](images/example-output.png)
