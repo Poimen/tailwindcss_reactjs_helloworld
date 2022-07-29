@@ -18,7 +18,6 @@ module.exports = webpackEnv => {
     process.env.IMAGE_INLINE_SIZE_LIMIT || '10000'
   );
 
-  console.log('isDevelopment', isDevelopment, webpackEnv, process.env.NODE_ENV, process.env.PUBLIC_URL)
   return {
     target: ['browserslist'],
     stats: process.env.WEBPACK_DEBUG ? 'normal' : 'errors-warnings',
@@ -99,7 +98,7 @@ module.exports = webpackEnv => {
           type: 'asset',
           parser: {
             dataUrlCondition: {
-              maxSize: imageInlineSizeLimit,
+              maxSize: imageInlineSizeLimit
             }
           }
         }, {
@@ -166,7 +165,7 @@ module.exports = webpackEnv => {
             ]
           }
         })
-      ],
+      ]
     },
     plugins: [
       isDevelopment && new ReactRefreshPlugin(),
@@ -195,7 +194,7 @@ module.exports = webpackEnv => {
       new InterpolateHtmlPlugin({ PUBLIC_URL: process.env.PUBLIC_URL }),
       new MiniCssExtractPlugin({
         filename: 'static/css/[name].[contenthash:8].css',
-        chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+        chunkFilename: 'static/css/[name].[contenthash:8].chunk.css'
       }),
       new WebpackManifestPlugin({
         fileName: 'asset-manifest.json',
@@ -217,5 +216,5 @@ module.exports = webpackEnv => {
       })
     ].filter(Boolean),
     performance: false
-  }
+  };
 };
